@@ -89,11 +89,11 @@ data/
 
 Open `src/final_notebook.ipynb` in Jupyter or VS Code. The notebook provides an end-to-end pipeline:
 
-1. **Select a model** — set the `model_choice` variable to `"cct"`, `"cnn"`, or `"lstm"`.
-2. **Data loading** — loads PTB-XL, applies neurokit2 cleaning, and creates train/validation/test splits.
-3. **Training** — trains the selected model for 50 epochs with class-weighted cross-entropy loss (or loads pre-trained weights from `data/weights/`).
-4. **Evaluation** — computes classification metrics (F1, accuracy, precision, recall, AUROC).
-5. **SLoC analysis** — generates attribution maps for individual samples and aggregates saliency statistics across the test set.
+1. **Select a model** - set the `model_choice` variable to `"cct"`, `"cnn"`, or `"lstm"`.
+2. **Data loading** - loads PTB-XL, applies neurokit2 cleaning, and creates train/validation/test splits.
+3. **Training** - trains the selected model for 50 epochs with class-weighted cross-entropy loss (or loads pre-trained weights from `data/weights/`).
+4. **Evaluation** - computes classification metrics (F1, accuracy, precision, recall, AUROC).
+5. **SLoC analysis** - generates attribution maps for individual samples and aggregates saliency statistics across the test set.
 
 To skip training and use pre-trained weights, set `LOAD = True` in the notebook. Available weights:
 - `data/weights/cct_clean_final.pth`
