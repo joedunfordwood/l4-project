@@ -1,11 +1,11 @@
 # Interpretable Deep Learning for 12-Lead ECG Classification
 
-This project investigates deep learning architectures for multi-label ECG diagnosis on the PTB-XL dataset, with a focus on model interpretability via Score-based Local Explanations (SLOC). Three architectures are compared: A Criss-Cross Transformer (CCT), a CNN, and a CNN-BiLSTM. Their learned representations are analysed through SLOC generated attribution maps.
+This project investigates deep learning architectures for multi-label ECG diagnosis on the PTB-XL dataset, with a focus on model interpretability via Soft Local Explanations (SLOC). Three architectures are compared: A Criss-Cross Transformer (CCT), a CNN, and a CNN-BiLSTM. Their learned representations are analysed through SLOC generated attribution maps.
 
 ## Key Contributions
 
-- **Criss-Cross Transformer (CCT)** — a dual-attention transformer that applies separate spatial (cross-lead) and temporal attention, to capture both intra-lead morphology and inter-lead dependencies in 12-lead ECGs.
-- **SLOC interpretability pipeline** — an optimisation-based attribution method that generates per-sample saliency maps by learning soft masks over input superpixels, evaluated quantitatively via insertion/deletion AUC curves.
+- **Criss-Cross Transformer (CCT)** - a dual-attention transformer that applies separate spatial (cross-lead) and temporal attention, to capture both intra-lead morphology and inter-lead dependencies in 12-lead ECGs.
+- **SLOC interpretability pipeline** - a local completeness based interpretability method that generates per-sample attribution maps by utilising gradient descent on a novel completeness gap metrics. Adapted from the Soft Local Completeness paper by Haddad et al. (citation below)
 - **Systematic comparison** of CCT, CNN, and CNN-BiLSTM on both clean (neurokit2-processed) and raw ECG data, with analysis of per-class and cross-label saliency maps.
 
 ## Results Summary
@@ -98,4 +98,14 @@ Open `src/final_notebook.ipynb` in Jupyter or VS Code. The notebook provides an 
 To skip training and use pre-trained weights, set `LOAD = True` in the notebook. Available weights:
 - `data/weights/cct_clean_final.pth`
 - `data/weights/lstm_clean.pth`
+
+Soft Local Completeness Paper Citation
+@InProceedings{Haddad_2025_ICCV,
+    author    = {Haddad, Ziv Weiss and Barkan, Oren and Elisha, Yehonatan and Koenigstein, Noam},
+    title     = {Soft Local Completeness: Rethinking Completeness in XAI},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2025},
+    pages     = {19794-19804}
+}
 
