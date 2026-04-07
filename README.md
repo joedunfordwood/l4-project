@@ -1,4 +1,4 @@
-# Interpretable Deep Learning for 12-Lead ECG Classification
+# Interpretable ECG Classification Using Criss-Cross Transformers and Soft Local Completeness
 
 This project investigates deep learning architectures for multi-label ECG diagnosis on the PTB-XL dataset, with a focus on model interpretability via Soft Local Explanations (SLOC). Three architectures are compared: A Criss-Cross Transformer (CCT), a CNN, and a CNN-BiLSTM. Their learned representations are analysed through SLOC generated attribution maps.
 
