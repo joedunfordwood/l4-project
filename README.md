@@ -1,16 +1,16 @@
 # Interpretable ECG Classification Using Criss-Cross Transformers and Soft Local Completeness
 
-This project investigates deep learning architectures for multi-label ECG diagnosis on the PTB-XL dataset, with a focus on model interpretability via Soft Local Explanations (SLOC). Three architectures are compared: A Criss-Cross Transformer (CCT), a CNN, and a CNN-BiLSTM. Their learned representations are analysed through SLOC generated attribution maps.
+This project investigates deep learning architectures for multi-class ECG diagnosis on the PTB-XL dataset, with a focus on model interpretability via Soft Local Explanations (SLOC). Three architectures are compared: A Criss-Cross Transformer (CCT), a CNN, and a CNN+BiLSTM. Their learned representations are analysed through SLOC generated attribution maps.
 
 ## Key Contributions
 
 - **Criss-Cross Transformer (CCT)** - a dual-attention transformer that applies separate spatial (cross-lead) and temporal attention, to capture both intra-lead morphology and inter-lead dependencies in 12-lead ECGs.
 - **SLOC interpretability pipeline** - a local completeness based interpretability method that generates per-sample attribution maps by utilising gradient descent on a novel completeness gap metrics. Adapted from the Soft Local Completeness paper by Haddad et al. (citation below)
-- **Systematic comparison** of CCT, CNN, and CNN-BiLSTM on both clean (neurokit2-processed) and raw ECG data, with analysis of per-class and cross-label saliency maps.
+- **Systematic comparison** of CCT, CNN, and CNN+BiLSTM on both clean (neurokit2-processed) and raw ECG data, with analysis of per-class and cross-lead saliency maps.
 
 ## Results Summary
 
-All models were trained on the PTB-XL dataset (21,799 recordings, 12 leads, 100 Hz) with 5-class superdiagnostic labels: NORM, HYP, MI, CD, STTC.
+All models were trained on the PTB-XL dataset (21,837 recordings, 12 leads, 100 Hz) with 5-class superdiagnostic labels: NORM, HYP, MI, CD, STTC.
 
 ### Classification Performance (Clean Data, Test Set)
 
@@ -24,7 +24,7 @@ All models were trained on the PTB-XL dataset (21,799 recordings, 12 leads, 100 
 
 | Model | Insertion AUC ↑ | Deletion AUC ↓ |
 |------------|-----------------|----------------|
-| **CCT** | **0.982** | **0.015** |
+| **CCT** | **0.897** | **0.015** |
 | CNN-BiLSTM | 0.889 | 0.088 |
 | CNN | 0.827 | 0.111 |
 
@@ -57,17 +57,16 @@ data/
 ### Requirements
 
 * Python 3.10+
-* PyTorch (with CUDA recommended for training)
 * Required packages:
   ```
-  torch
+  torch (with CUDA recommended for training)
   numpy
   pandas
   matplotlib
   scikit-learn
   wfdb
   neurokit2
-  openpyxl
+  ast
   ```
 
 ### Setup
@@ -80,7 +79,7 @@ data/
 
 2. **Install dependencies**:
    ```bash
-   pip install torch numpy pandas matplotlib scikit-learn wfdb neurokit2
+   pip install torch numpy pandas matplotlib scikit-learn wfdb neurokit2 ast
    ```
 
 3. **Download the PTB-XL dataset** from [PhysioNet](https://physionet.org/content/ptb-xl/1.0.3/) and place it in `data/raw/`.
