@@ -18,14 +18,14 @@ All models were trained on the PTB-XL dataset (21,837 recordings, 12 leads, 100 
 |------------|-------------|----------|-------------|
 | **CCT** | **0.705** | **0.720** | **0.906** |
 | CNN | 0.678 | 0.710 | 0.868 |
-| CNN-BiLSTM | 0.663 | 0.699 | 0.878 |
+| CNN+BiLSTM | 0.663 | 0.699 | 0.878 |
 
 ### SLoC Interpretability (Clean Models)
 
 | Model | Insertion AUC ↑ | Deletion AUC ↓ |
 |------------|-----------------|----------------|
 | **CCT** | **0.897** | **0.015** |
-| CNN-BiLSTM | 0.889 | 0.088 |
+| CNN+BiLSTM | 0.889 | 0.088 |
 | CNN | 0.827 | 0.111 |
 
 The CCT achieves the best classification and interpretability scores indicating that the learned saliency maps accurately capture diagnostically relevant regions.
