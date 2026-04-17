@@ -82,7 +82,7 @@ data/
    pip install torch numpy pandas matplotlib scikit-learn wfdb neurokit2 ast
    ```
 
-3. **Download the PTB-XL dataset** from [PhysioNet](https://physionet.org/content/ptb-xl/1.0.3/) and place it in `data/raw/`.
+3. **Download the PTB-XL dataset** from [PhysioNet](https://physionet.org/content/ptb-xl/1.0.3/) and place it in `data/raw/`. Or direct zip to the 100hz samples can be found [here](https://drive.google.com/file/d/1QnkKU0TWBvdly4uU3aq_imaIKPRROynC/view?usp=sharing).
 
 ### Running the Notebook
 
